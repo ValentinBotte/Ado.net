@@ -15,7 +15,7 @@ namespace ReaderObject
         {
             try
             {
-                String oracledb = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.10.2.10)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=SLAM)));User Id = raimonsql; Password = sio; ";
+                String oracledb = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.10.2.10)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=SLAM)));User Id = bottesql; Password = sio; ";
 
                 String connectionString = oracledb;
                 OracleConnection connection = new OracleConnection();
@@ -34,7 +34,9 @@ namespace ReaderObject
                         reader["PRENOMEMP"] as String,
                         reader["POSTE"] as String ,
                         Convert.ToSingle(reader["SALAIRE"]),
-                        reader["Prime"] == DBNull.Value ?  Convert.ToSingle(reader["SALAIRE"]) : 0
+                        (reader["Prime"] == DBNull.Value) ? 0 : Convert.ToSingle(reader["PRIME"]),
+                        reader["CODEPROJET"] as String,
+                        (reader["SUPERIEUR"] == DBNull.Value) ? (short)0 : Convert.ToInt16(reader["SUPERIEUR"])
                         ));
     
                 }

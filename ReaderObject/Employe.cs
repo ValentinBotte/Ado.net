@@ -29,7 +29,7 @@ namespace ReaderObject
             Superieur = superieur;
         }
         */
-        public Employe(short numemp, string nomemp, string prenomemp, string poste, float salaire, float? prime)
+        public Employe(short numemp, string nomemp, string prenomemp, string poste, float salaire, float? prime, string pcodeprojet, short? psuperieur)
         {
             Numemp = numemp;
             Nomemp = nomemp;
@@ -37,11 +37,13 @@ namespace ReaderObject
             Poste = poste;
             Salaire = salaire;
             Prime = prime;
+            CodeProjet = pcodeprojet;
+            Superieur = psuperieur;
         }
 
         public override string ToString()
         {
-            return Numemp + " . " + Nomemp + " . " + Prenomemp + " . " + Poste + " . " + Salaire + " . " + Prime + " . " + CodeProjet + " . " + Superieur;
+            return Numemp + " . " + Nomemp + " . " + Prenomemp + " . " + Poste + " . " + Salaire + " . " + Prime + " . " + CodeProjet + " . " + Superieur + " . " + CodeProjet + " . " + Superieur;
         }
     }
 
